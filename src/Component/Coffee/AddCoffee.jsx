@@ -1,8 +1,57 @@
+import { FaArrowCircleLeft } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const AddCoffee = () => {
+    const navigate = useNavigate()
     return (
-        <div>
-            
+        <div className="py-14">
+            <div className="my-container">
+                <span onClick={()=>navigate(-1)}  className="inline-flex items-center gap-2"> <FaArrowCircleLeft></FaArrowCircleLeft> Back to home</span>
+
+                <div className="bg-[#F4F3F0] p-10 my-8">
+                    <div className="text-center py-5 px-28 space-y-2">
+                        <h2 className="my-title">Add new coffee</h2>
+                        <p className="my-subtitle">It is a long established fact that a reader will be distraceted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here.</p>
+                    </div>
+                    <form className="space-y-4">
+                        <div className="grid grid-cols-2 gap-4">
+                            <div>
+                                <label className="my-label" htmlFor="name">Name</label>
+                                <input className="my-inp" type="text" name="name" id="name" placeholder="Your name here..." />
+                            </div>
+                            <div>
+                                <label className="my-label" htmlFor="chef">Chef</label>
+                                <input className="my-inp" type="text" name="chef" id="chef" placeholder="Your chef's name here..." />
+                            </div>
+                        </div>
+                        <div className="grid grid-cols-2 gap-4">
+                            <div>
+                                <label className="my-label" htmlFor="supplier">Supplier</label>
+                                <input className="my-inp" type="text" name="supplier" id="supplier" placeholder="Your supplier name here..." />
+                            </div>
+                            <div>
+                                <label className="my-label" htmlFor="taste">taste</label>
+                                <input className="my-inp" type="text" name="taste" id="taste" placeholder="Share your own taste..." />
+                            </div>
+                        </div>
+                        <div className="grid grid-cols-2 gap-4">
+                            <div>
+                                <label className="my-label" htmlFor="category">Category</label>
+                                <input className="my-inp" type="text" name="category" id="category" placeholder="category..." />
+                            </div>
+                            <div>
+                                <label className="my-label" htmlFor="details">Details</label>
+                                <input className="my-inp" type="text" name="details" id="details" placeholder="Details..." />
+                            </div>
+                        </div>
+                        <div className="">
+                                <label className="my-label" htmlFor="photo">Photo</label>
+                                <input className="my-inp" type="text" name="photo" id="photo" placeholder="Photo..." />
+                        </div>
+                        <button className="cmn-btn w-full">Add Coffee</button>
+                    </form>
+                </div>
+            </div>
         </div>
     );
 };

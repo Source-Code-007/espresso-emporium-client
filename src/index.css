@@ -6,3 +6,18 @@
 .cmn-btn{
     @apply px-4 py-2 bg-[#E3B577] rounded-lg text-slate-50 font-bold
 }
+.my-container{
+    @apply max-w-7xl xl:mx-auto mx-8
+}
+.my-label{
+    @apply font-bold text-gray-700
+}
+.my-inp{
+    @apply w-full py-4 px-2 shadow
+}
+.my-title{
+    @apply font-bold text-xl
+}
+.my-subtitle{
+    @apply text-gray-700
+}
