@@ -5,6 +5,8 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import LayoutOne from './Layout/LayoutOne.jsx'
 import Homepage from './Component/Homepage/Homepage.jsx'
 import AddCoffee from './Component/Coffee/AddCoffee'
+import UpdateCoffee from './Component/Coffee/UpdateCoffee'
+import CoffeeDetails from './Component/Coffee/CoffeeDetails'
 
 const router = createBrowserRouter([
   {
@@ -18,7 +20,15 @@ const router = createBrowserRouter([
       {
         path: '/add-coffee',
         element: <AddCoffee></AddCoffee>
-      }
+      },
+      {
+        path: '/update-coffee/:id',
+        element: <UpdateCoffee></UpdateCoffee>
+      },
+      {
+        path: '/coffee/:id',
+        element: <CoffeeDetails></CoffeeDetails>
+      },
     ]
   }
 ])

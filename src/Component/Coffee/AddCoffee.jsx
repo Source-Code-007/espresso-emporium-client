@@ -3,17 +3,39 @@ import { useNavigate } from "react-router-dom";
 
 const AddCoffee = () => {
     const navigate = useNavigate()
+    const handleAddCoffeeFunc = (e) => {
+        e.preventDefault()
+        const form = e.target
+        const name = form.name.value
+        const chef = form.chef.value
+        const supplier = form.supplier.value
+        const taste = form.taste.value
+        const category = form.category.value
+        const details = form.details.value
+        const photo = form.photo.value
+        const newCoffee = { name, chef, supplier, taste, category, details, photo }
+
+        fetch('http://localhost:7000/users', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newCoffee)
+        }).then(res => res.json())
+            .then(data => console.log(data))
+            .catch(e => console.log(e.message))
+    }
     return (
         <div className="py-14">
             <div className="my-container">
-                <span onClick={()=>navigate(-1)}  className="inline-flex items-center gap-2"> <FaArrowCircleLeft></FaArrowCircleLeft> Back to home</span>
+                <span onClick={() => navigate(-1)} className="inline-flex items-center gap-2 cursor-pointer"> <FaArrowCircleLeft></FaArrowCircleLeft> Back to home</span>
 
                 <div className="bg-[#F4F3F0] p-10 my-8">
                     <div className="text-center py-5 px-28 space-y-2">
                         <h2 className="my-title">Add new coffee</h2>
                         <p className="my-subtitle">It is a long established fact that a reader will be distraceted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here.</p>
                     </div>
-                    <form className="space-y-4">
+                    <form onSubmit={handleAddCoffeeFunc} className="space-y-4">
                         <div className="grid grid-cols-2 gap-4">
                             <div>
                                 <label className="my-label" htmlFor="name">Name</label>
@@ -45,8 +67,8 @@ const AddCoffee = () => {
                             </div>
                         </div>
                         <div className="">
-                                <label className="my-label" htmlFor="photo">Photo</label>
-                                <input className="my-inp" type="text" name="photo" id="photo" placeholder="Photo..." />
+                            <label className="my-label" htmlFor="photo">Photo</label>
+                            <input className="my-inp" type="text" name="photo" id="photo" placeholder="Photo URL..." />
                         </div>
                         <button className="cmn-btn w-full">Add Coffee</button>
                     </form>
