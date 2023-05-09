@@ -14,7 +14,7 @@ const UpdateCoffee = () => {
         const photo = form.photo.value
         const newCoffee = { name, chef, supplier, taste, category, details, photo }
 
-        fetch(`http://localhost:7000/user${loadedCoffe.id}`, {
+        fetch(`http://localhost:7000/user${loadedCoffee.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -31,7 +31,7 @@ const UpdateCoffee = () => {
 
                 <div className="bg-[#F4F3F0] p-10 my-8">
                     <div className="text-center py-5 px-28 space-y-2">
-                        <h2 className="my-title">Update coffee</h2>
+                        <h2 className="my-title">Update existing coffee details!</h2>
                         <p className="my-subtitle">It is a long established fact that a reader will be distraceted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here.</p>
                     </div>
                     <form onSubmit={handleUpdateCoffeFunc} className="space-y-4">
