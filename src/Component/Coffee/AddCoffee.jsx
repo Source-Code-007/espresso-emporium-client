@@ -24,7 +24,7 @@ const AddCoffee = () => {
         }).then(res => res.json())
             .then(data => {
                 if(data.acknowledged){
-                    console.log('user added successfully')
+                    console.log('coffee added successfully')
                 }
             })
             .catch(e => console.log(e.message))
