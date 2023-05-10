@@ -38,36 +38,36 @@ const UpdateCoffee = () => {
                         <div className="grid grid-cols-2 gap-4">
                             <div>
                                 <label className="my-label" htmlFor="name">Name</label>
-                                <input className="my-inp" type="text" name="name" id="name" placeholder="Your name here..." />
+                                <input className="my-inp" type="text" name="name" id="name" placeholder="Your name here..." required/>
                             </div>
                             <div>
                                 <label className="my-label" htmlFor="chef">Chef</label>
-                                <input className="my-inp" type="text" name="chef" id="chef" placeholder="Your chef's name here..." />
+                                <input className="my-inp" type="text" name="chef" id="chef" placeholder="Your chef's name here..." required/>
                             </div>
                         </div>
                         <div className="grid grid-cols-2 gap-4">
                             <div>
                                 <label className="my-label" htmlFor="supplier">Supplier</label>
-                                <input className="my-inp" type="text" name="supplier" id="supplier" placeholder="Your supplier name here..." />
+                                <input className="my-inp" type="text" name="supplier" id="supplier" placeholder="Your supplier name here..." required/>
                             </div>
                             <div>
                                 <label className="my-label" htmlFor="taste">taste</label>
-                                <input className="my-inp" type="text" name="taste" id="taste" placeholder="Share your own taste..." />
+                                <input className="my-inp" type="text" name="taste" id="taste" placeholder="Share your own taste..." required/>
                             </div>
                         </div>
                         <div className="grid grid-cols-2 gap-4">
                             <div>
                                 <label className="my-label" htmlFor="category">Category</label>
-                                <input className="my-inp" type="text" name="category" id="category" placeholder="category..." />
+                                <input className="my-inp" type="text" name="category" id="category" placeholder="category..." required/>
                             </div>
                             <div>
                                 <label className="my-label" htmlFor="details">Details</label>
-                                <input className="my-inp" type="text" name="details" id="details" placeholder="Details..." />
+                                <input className="my-inp" type="text" name="details" id="details" placeholder="Details..." required/>
                             </div>
                         </div>
                         <div className="">
                             <label className="my-label" htmlFor="photo">Photo</label>
-                            <input className="my-inp" type="text" name="photo" id="photo" placeholder="Photo URL..." />
+                            <input className="my-inp" type="text" name="photo" id="photo" placeholder="Photo URL..." required/>
                         </div>
                         <button className="cmn-btn w-full">Add Coffee</button>
                     </form>

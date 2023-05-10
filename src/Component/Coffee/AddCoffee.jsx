@@ -9,11 +9,11 @@ const AddCoffee = () => {
         const name = form.name.value
         const chef = form.chef.value
         const supplier = form.supplier.value
-        const taste = form.taste.value
+        const price = form.price.value
         const category = form.category.value
         const details = form.details.value
         const photo = form.photo.value
-        const newCoffee = { name, chef, supplier, taste, category, details, photo }
+        const newCoffee = { name, chef, supplier, price, category, details, photo }
 
         fetch('http://localhost:7000/addCoffee', {
             method: 'POST',
@@ -22,7 +22,11 @@ const AddCoffee = () => {
             },
             body: JSON.stringify(newCoffee)
         }).then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                if(data.acknowledged){
+                    console.log('user added successfully')
+                }
+            })
             .catch(e => console.log(e.message))
     }
     return (
@@ -39,36 +43,36 @@ const AddCoffee = () => {
                         <div className="grid grid-cols-2 gap-4">
                             <div>
                                 <label className="my-label" htmlFor="name">Name</label>
-                                <input className="my-inp" type="text" name="name" id="name" placeholder="Your name here..." />
+                                <input className="my-inp" type="text" name="name" id="name" placeholder="Your name here..." required/>
                             </div>
                             <div>
                                 <label className="my-label" htmlFor="chef">Chef</label>
-                                <input className="my-inp" type="text" name="chef" id="chef" placeholder="Your chef's name here..." />
+                                <input className="my-inp" type="text" name="chef" id="chef" placeholder="Your chef's name here..." required/>
                             </div>
                         </div>
                         <div className="grid grid-cols-2 gap-4">
                             <div>
                                 <label className="my-label" htmlFor="supplier">Supplier</label>
-                                <input className="my-inp" type="text" name="supplier" id="supplier" placeholder="Your supplier name here..." />
+                                <input className="my-inp" type="text" name="supplier" id="supplier" placeholder="Your supplier name here..." required/>
                             </div>
                             <div>
-                                <label className="my-label" htmlFor="taste">taste</label>
-                                <input className="my-inp" type="text" name="taste" id="taste" placeholder="Share your own taste..." />
+                                <label className="my-label" htmlFor="price">price</label>
+                                <input className="my-inp" type="text" name="price" id="price" placeholder="price..." required/>
                             </div>
                         </div>
                         <div className="grid grid-cols-2 gap-4">
                             <div>
                                 <label className="my-label" htmlFor="category">Category</label>
-                                <input className="my-inp" type="text" name="category" id="category" placeholder="category..." />
+                                <input className="my-inp" type="text" name="category" id="category" placeholder="category..." required/>
                             </div>
                             <div>
                                 <label className="my-label" htmlFor="details">Details</label>
-                                <input className="my-inp" type="text" name="details" id="details" placeholder="Details..." />
+                                <input className="my-inp" type="text" name="details" id="details" placeholder="Details..." required/>
                             </div>
                         </div>
                         <div className="">
                             <label className="my-label" htmlFor="photo">Photo</label>
-                            <input className="my-inp" type="text" name="photo" id="photo" placeholder="Photo URL..." />
+                            <input className="my-inp" type="text" name="photo" id="photo" placeholder="Photo URL..." required/>
                         </div>
                         <button className="cmn-btn w-full">Add Coffee</button>
                     </form>
