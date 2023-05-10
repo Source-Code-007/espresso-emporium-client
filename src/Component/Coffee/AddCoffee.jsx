@@ -17,7 +17,7 @@ const AddCoffee = () => {
         const photo = form.photo.value
         const newCoffee = { name, chef, supplier, price, category, details, photo }
 
-        fetch('http://localhost:7000/addCoffee', {
+        fetch('https://espresso-emporium-server-hazel.vercel.app/addCoffee', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

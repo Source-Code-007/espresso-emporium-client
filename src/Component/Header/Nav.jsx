@@ -10,7 +10,7 @@ const Nav = () => {
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-slate-700 rounded-box w-52">
                         <li><Link to={'/'}>Homepage</Link></li>
-                        <li><Link to={'/coffees'}>Coffees</Link></li>
+                        <li><a href='#coffees'>Coffees</a></li>
                     </ul>
                 </div>
             </div>

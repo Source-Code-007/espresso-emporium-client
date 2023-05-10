@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const Coffees = () => {
     const [coffees, setCoffees] = useState(null)
     useEffect(() => {
-        fetch('http://localhost:7000/coffees')
+        fetch('https://espresso-emporium-server-hazel.vercel.app/coffees')
             .then(res => res.json())
             .then(data => setCoffees(data))
             .catch(e => console.log(e.message))
@@ -19,7 +19,7 @@ const Coffees = () => {
     const handleCoffeeDeleteFunc = (id) => {
         const restCoffees = coffees.filter(coffee => coffee._id !== id)
         setCoffees(restCoffees)
-        fetch(`http://localhost:7000/coffee/${id}`, { method: 'DELETE' })
+        fetch(`https://espresso-emporium-server-hazel.vercel.app/coffee/${id}`, { method: 'DELETE' })
             .then(res => res.json())
             .then(data => {
                 if (data.deletedCount) {
@@ -39,7 +39,7 @@ const Coffees = () => {
     }
 
     return (
-        <div className="py-20">
+        <div className="py-20" id="coffees">
             <div className="my-container">
                 <div className="my-3  text-center">
                     <p>--- Sip & Savor ---</p>

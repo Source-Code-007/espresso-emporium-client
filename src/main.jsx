@@ -24,12 +24,12 @@ const router = createBrowserRouter([
       {
         path: '/update-coffee/:id',
         element: <UpdateCoffee></UpdateCoffee>,
-        loader: ({params})=> fetch(`http://localhost:7000/coffee/${params.id}`)
+        loader: ({params})=> fetch(`https://espresso-emporium-server-hazel.vercel.app/coffee/${params.id}`)
       },
       {
         path: '/coffee/:id',
         element: <CoffeeDetails></CoffeeDetails>,
-        loader: ({params})=> fetch(`http://localhost:7000/coffee/${params.id}`)
+        loader: ({params})=> fetch(`https://espresso-emporium-server-hazel.vercel.app/coffee/${params.id}`)
       },
     ]
   }
