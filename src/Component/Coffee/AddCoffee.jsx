@@ -1,5 +1,7 @@
 import { FaArrowCircleLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddCoffee = () => {
     const navigate = useNavigate()
@@ -23,8 +25,17 @@ const AddCoffee = () => {
             body: JSON.stringify(newCoffee)
         }).then(res => res.json())
             .then(data => {
-                if(data.acknowledged){
-                    console.log('coffee added successfully')
+                if (data.acknowledged) {
+                    toast.success('Added a new coffee!', {
+                        position: "top-right",
+                        autoClose: 2000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                        });
                 }
             })
             .catch(e => console.log(e.message))
@@ -43,41 +54,53 @@ const AddCoffee = () => {
                         <div className="grid grid-cols-2 gap-4">
                             <div>
                                 <label className="my-label" htmlFor="name">Name</label>
-                                <input className="my-inp" type="text" name="name" id="name" placeholder="Your name here..." required/>
+                                <input className="my-inp" type="text" name="name" id="name" placeholder="Your name here..." required />
                             </div>
                             <div>
                                 <label className="my-label" htmlFor="chef">Chef</label>
-                                <input className="my-inp" type="text" name="chef" id="chef" placeholder="Your chef's name here..." required/>
+                                <input className="my-inp" type="text" name="chef" id="chef" placeholder="Your chef's name here..." required />
                             </div>
                         </div>
                         <div className="grid grid-cols-2 gap-4">
                             <div>
                                 <label className="my-label" htmlFor="supplier">Supplier</label>
-                                <input className="my-inp" type="text" name="supplier" id="supplier" placeholder="Your supplier name here..." required/>
+                                <input className="my-inp" type="text" name="supplier" id="supplier" placeholder="Your supplier name here..." required />
                             </div>
                             <div>
                                 <label className="my-label" htmlFor="price">price</label>
-                                <input className="my-inp" type="text" name="price" id="price" placeholder="price..." required/>
+                                <input className="my-inp" type="text" name="price" id="price" placeholder="price..." required />
                             </div>
                         </div>
                         <div className="grid grid-cols-2 gap-4">
                             <div>
                                 <label className="my-label" htmlFor="category">Category</label>
-                                <input className="my-inp" type="text" name="category" id="category" placeholder="category..." required/>
+                                <input className="my-inp" type="text" name="category" id="category" placeholder="category..." required />
                             </div>
                             <div>
                                 <label className="my-label" htmlFor="details">Details</label>
-                                <input className="my-inp" type="text" name="details" id="details" placeholder="Details..." required/>
+                                <input className="my-inp" type="text" name="details" id="details" placeholder="Details..." required />
                             </div>
                         </div>
                         <div className="">
                             <label className="my-label" htmlFor="photo">Photo</label>
-                            <input className="my-inp" type="text" name="photo" id="photo" placeholder="Photo URL..." required/>
+                            <input className="my-inp" type="text" name="photo" id="photo" placeholder="Photo URL..." required />
                         </div>
                         <button className="cmn-btn w-full">Add Coffee</button>
                     </form>
                 </div>
             </div>
+            <ToastContainer
+                position="top-right"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
         </div>
     );
 };
